@@ -18,7 +18,7 @@ public class Movie {
     public Movie(JsonObject json){
         this.titre = json.get("title").getAsString();
         this.resume = json.get("overview").getAsString();
-        this.image = json.get("poster_path") == null ? "" : json.get("poster_path").getAsString();
+        this.image = json.get("poster_path").isJsonNull() ? "" : json.get("poster_path").getAsString();
         this.year = json.get("release_date").getAsString().split("-")[0];
     }
 

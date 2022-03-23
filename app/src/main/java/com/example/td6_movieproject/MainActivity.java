@@ -52,45 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     int year = Integer.parseInt(yearResearch.getText().toString());
                     String query = inputResearch.getText().toString();
-                    System.out.println("OK1");
-                    Ion.with(v.getContext())
-                            .load(API.URL.replaceAll("%apikey%",API.APIKEY).replaceAll("%query%", query) + "&year="+year)
-                            .asJsonObject()
-                            .setCallback(new FutureCallback<JsonObject>() {
-                                @RequiresApi(api = Build.VERSION_CODES.N)
-                                @Override
-                                public void onCompleted(Exception e, JsonObject res) {
-                                    System.out.println("OK2");
-                                    if (e != null && res == null) {
-                                        System.out.println(e.getMessage());
-                                        return;
-                                    }
-                                    JsonArray result = res.getAsJsonArray("results");
-                                    System.out.println("OK3");
-                                    int nombreDeRecherche;
-                                    try{
-                                        nombreDeRecherche = Integer.parseInt(numberResearch.getText().toString());
-                                        nombreDeRecherche = nombreDeRecherche>50 ? 50 : nombreDeRecherche<=0 ? 50 : nombreDeRecherche;
-                                    }catch (Exception ignored){
-                                        nombreDeRecherche = 50;
-                                    }
-                                    ArrayList<Movie> movieArrayList = new ArrayList<>(nombreDeRecherche);
-                                    int i = 0;
-                                    for(JsonElement element : result){
-                                        JsonObject json = element.getAsJsonObject();
-                                        movieArrayList.add(new Movie(json));
-                                        i++;
-                                        if(i>nombreDeRecherche){
-                                            break;
-                                        }
-                                    }
-                                    System.out.println("OKOKOKOKOKOKOKOKOOKKOKOKOKOKOKOKO");
-                                    MovieArrayAdapter adapter = new MovieArrayAdapter(MainActivity.this, movieArrayList);
-                                    ListView lv = findViewById(R.id.listMovie);
-                                    lv.setAdapter(adapter);
-                                    startActivity(new Intent(MainActivity.this, ListMovieActivity.class));
-                                }
-                            });
+                    String url = API.URL.replaceAll("%apikey%",API.APIKEY).replaceAll("%query%", query) + "&year="+year;
+                    Intent intentListMovie = new Intent(MainActivity.this, ListMovieActivity.class);
+                    intentListMovie.putExtra("url", url);
+                    intentListMovie.putExtra("year", year);
+                    startActivity(intentListMovie);
 
                 }catch (NumberFormatException e){
                     String query = inputResearch.getText().toString();
