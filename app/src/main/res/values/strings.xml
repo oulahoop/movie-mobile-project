@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TD6_MovieProject</string>
+    <string name="chercher_un_film">Chercher un film</string>
+    <string name="exemple_2015">Exemple : 2015</string>
+    <string name="rechercher">Rechercher</string>
+    <string name="films">Films</string>
+    <string name="genre">Genre :</string>
+    <string name="nombre_de_recherche">Nombre de recherche</string>
+    <string name="date">Date :</string>
+    <string name="maximum_50">Maximum : 50</string>
+    <string name="retour">Retour</string>
+    <string name="resultat_de_recherche">Resultat de recherche</string>
+</resources>
