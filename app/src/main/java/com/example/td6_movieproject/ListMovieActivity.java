@@ -3,8 +3,12 @@ package com.example.td6_movieproject;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.gson.JsonArray;
@@ -22,6 +26,11 @@ public class ListMovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_movie);
         String url = getIntent().getStringExtra("url");
+
+        ListView listMovie = findViewById(R.id.listMovie);
+        Button retour = findViewById(R.id.retourButton);
+
+
         Ion.with(ListMovieActivity.this)
                 .load(url)
                 .asJsonObject()
@@ -42,10 +51,25 @@ public class ListMovieActivity extends AppCompatActivity {
                         }
 
                         MovieArrayAdapter adapter = new MovieArrayAdapter(ListMovieActivity.this, movieArrayList);
-                        ListView lv = findViewById(R.id.listMovie);
-                        lv.setAdapter(adapter);
+                        listMovie.setAdapter(adapter);
                     }
                 });
+
+        listMovie.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent detailIntent = new Intent(ListMovieActivity.this, DetailMovieActivity.class);
+                Movie m = (Movie) parent.getAdapter().getItem(position);
+                detailIntent.putExtra("movie",m);
+                startActivity(detailIntent);
+            }
+        });
+        retour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         /*
 
         */

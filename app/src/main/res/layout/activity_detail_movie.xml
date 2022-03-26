@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:textAlignment="center"
+    tools:context=".DetailMovieActivity">
+
+    <ImageView
+        android:id="@+id/posterDetails"
+        android:layout_width="196dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/poster_of_the_film"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearDetails"
+        app:srcCompat="@mipmap/logo" />
+
+    <TextView
+        android:id="@+id/titleDetails"
+        android:layout_width="414dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yearDetails"
+        android:layout_width="82dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#4FFFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDetails" />
+
+    <TextView
+        android:id="@+id/descriptionDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="8"
+        android:scrollbars="vertical"
+        android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/posterDetails" />
+
+    <Button
+        android:id="@+id/retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:scrollbars="vertical"
+        android:maxLines="2"
+        android:text="@string/retour"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionDetails" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
