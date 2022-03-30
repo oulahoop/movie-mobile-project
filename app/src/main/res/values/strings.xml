@@ -11,8 +11,8 @@
     <string name="retour">Retour</string>
     <string name="resultat_de_recherche">Resultat de recherche</string>
     <string name="poster">poster</string>
-    <string name="rechercher_un_film"><u>Rechercher un film</u></string>
-    <string name="les_meilleurs_films"><u>Les meilleurs films</u></string>
+    <string name="rechercher_un_film">Rechercher un film</string>
+    <string name="les_meilleurs_films">Les meilleurs films</string>
     <string name="logo_of_omofilms">Logo of oMoFILMS</string>
     <string name="ann_e">Année</string>
     <string name="th_me">Thème</string>

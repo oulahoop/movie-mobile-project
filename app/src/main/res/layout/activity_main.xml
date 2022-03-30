@@ -19,28 +19,32 @@
         app:layout_constraintVertical_bias="0.166"
         app:srcCompat="@mipmap/logo" />
 
-    <TextView
+    <Button
         android:id="@+id/researchForMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_width="341dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/list_movie_item_bg"
         android:text="@string/rechercher_un_film"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
+    <Button
         android:id="@+id/bestMovies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="341dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/list_movie_item_bg"
         android:text="@string/les_meilleurs_films"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="24sp"
+
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/researchForMovie" />
 </androidx.constraintlayout.widget.ConstraintLayout>
