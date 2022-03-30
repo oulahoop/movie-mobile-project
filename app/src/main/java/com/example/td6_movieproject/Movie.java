@@ -18,11 +18,19 @@ public class Movie implements Parcelable {
         this.year = year;
     }
 
-    public Movie(JsonObject json){
+    public Movie(JsonObject json) {
         this.titre = json.get("title").getAsString();
         this.resume = json.get("overview").getAsString();
-        this.image = json.get("poster_path").isJsonNull() ? "" : json.get("poster_path").getAsString();
-        this.year = json.get("release_date").getAsString().split("-")[0];
+        try {
+            this.image = json.get("poster_path").getAsString();
+        } catch (Exception ignored) {
+            this.image = "";
+        }
+        try {
+            this.year = json.get("release_date").getAsString().split("-")[0];
+        }catch (Exception ignored){
+            this.year = "";
+        }
     }
 
     protected Movie(Parcel in) {

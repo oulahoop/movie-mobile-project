@@ -52,6 +52,7 @@ public class BestFilmsActivity extends AppCompatActivity {
                         });
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(BestFilmsActivity.this, R.layout.spinner_item_layout, new ArrayList<>(map.keySet()));
                         theme.setAdapter(adapter);
+                        if(map.size()>1) theme.setSelection(map.keySet().size()-1);
                     }
                 });
         recherche.setOnClickListener(new View.OnClickListener() {

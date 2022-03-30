@@ -51,6 +51,7 @@ public class SearchFilmActivitiy extends AppCompatActivity {
                         });
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(SearchFilmActivitiy.this, R.layout.spinner_item_layout, new ArrayList<>(map.keySet()));
                         genre.setAdapter(adapter);
+                        if(map.size()>1) genre.setSelection(map.keySet().size()-1);
                     }
                 });
         research.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +73,7 @@ public class SearchFilmActivitiy extends AppCompatActivity {
                 if(!genre.getSelectedItem().toString().equalsIgnoreCase("Tous")) {
                     genreResearch = "&with_genres=" + map.get(genre.getSelectedItem().toString());
                 }
-                String query = inputResearch.getText().toString();
+                String query = inputResearch.getText().toString().replaceAll(" ", "%20");
                 String url = API.URL_MOVIE_SEARCH.replaceAll("%apikey%", API.APIKEY).replaceAll("%query%", query) + year + genreResearch;
                 System.out.println(url);
                 Intent intentListMovie = new Intent(SearchFilmActivitiy.this, ListMovieActivity.class);
